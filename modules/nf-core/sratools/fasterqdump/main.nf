@@ -37,10 +37,9 @@ process SRATOOLS_FASTERQDUMP {
         --outfile $outfile \\
         ${sra.name}
     
-    echo "\$outfile"
-    for file in "\$outfile"*; do 
-        if [[ "$file" != *".fastq" ]]; then 
-            mv "$file" "$file".fastq; 
+    for file in "$outfile"*; do 
+        if [[ "\$file" != *".fastq" ]]; then 
+            mv "\$file" "\$file".fastq; 
         fi
     done
     
