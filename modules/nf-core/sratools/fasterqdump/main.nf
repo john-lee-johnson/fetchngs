@@ -36,7 +36,11 @@ process SRATOOLS_FASTERQDUMP {
         --threads $task.cpus \\
         --outfile $outfile \\
         ${sra.name}
-
+    
+    if [[ $outfile == *".fastq" ]]; then
+        mv $outfile $outfile.fastq;
+    fi
+    
     pigz \\
         $args2 \\
         --no-name \\
